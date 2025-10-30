@@ -105,9 +105,10 @@ export function LoginForm({
                 </Button>
                 <FieldDescription className="text-center text-sm pt-2">
                   Don&apos;t have an account?{" "}
-                  <a href="#" className="font-medium text-blue-600 hover:text-blue-700 hover:underline underline-offset-4 transition-colors">
+                  <a href="/register" className="font-medium text-blue-600 hover:text-blue-700 hover:underline underline-offset-4 transition-colors">
                     Sign up
                   </a>
+
                 </FieldDescription>
               </Field>
             </FieldGroup>
