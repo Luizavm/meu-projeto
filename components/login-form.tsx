@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -15,11 +17,20 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Lock, Mail } from "lucide-react"
+import { useRouter } from "next/navigation" // ✅ adicionado para redirecionamento
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const router = useRouter() // ✅ inicializa o roteador
+
+  function handleLogin(e: React.FormEvent) {
+    e.preventDefault()
+    // aqui você poderia adicionar verificação de autenticação real
+    router.push("/dashboard") // ✅ redireciona após login bem-sucedido
+  }
+
   return (
     <div className={cn("flex flex-col gap-6 min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 p-4", className)} {...props}>
       <Card className="w-full max-w-md shadow-2xl border-0 bg-white/80 backdrop-blur-sm">
@@ -32,7 +43,7 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handleLogin}> {/* ✅ adiciona função de login */}
             <FieldGroup className="space-y-5">
               <Field>
                 <FieldLabel htmlFor="email" className="text-sm font-medium">
@@ -108,7 +119,6 @@ export function LoginForm({
                   <a href="/register" className="font-medium text-blue-600 hover:text-blue-700 hover:underline underline-offset-4 transition-colors">
                     Sign up
                   </a>
-
                 </FieldDescription>
               </Field>
             </FieldGroup>
