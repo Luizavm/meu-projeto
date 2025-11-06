@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from '@delivery/db'
+import { prisma } from '@/app/db'
 import { revalidatePath } from 'next/cache'
 
 export async function criarCategoria(formData: FormData) {

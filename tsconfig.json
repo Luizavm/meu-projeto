@@ -20,7 +20,13 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/app/*": ["./app/*"],
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/generated/*": ["./generated/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/delivery/*": ["./delivery/*"],
+      
     }
   },
   "include": [
